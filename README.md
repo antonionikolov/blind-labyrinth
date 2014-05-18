@@ -10,3 +10,8 @@ Functionality
 It is a single player game with authomatic generation of the labyrinth. The
 player determines what size will be the labyrinth. The project supports console
 user interface and graphical user interface.
+
+Second Milestone Goal
+---------------------
+Making the backend of the game and start developing the console user interface.
+
