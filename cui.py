@@ -19,7 +19,10 @@ while getch != 'q':
     for y in range(1, int(length) + 1):              
         print("")
         for x in range(1, int(width) + 1):
-            print(object.map[x, y], end=" ")
+            if abs(object.x - x) < 2 and abs(object.y - y) < 2:
+                print(object.map[x, y], end=" ")
+            else:
+                print(" ", end=" ")
 
     print("\n")
     getch = command()
