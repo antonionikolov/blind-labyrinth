@@ -3,6 +3,7 @@ from get_character import _Getch, _GetchUnix, _GetchWindows
 from basic_objects import MovingObject, Map
 import os
 
+
 print("Enter the width of the labyrinth: ", end="")
 width = input()
 print("Enter the length of the labyrinth: ", end="")
