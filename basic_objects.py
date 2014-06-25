@@ -67,25 +67,13 @@ class MovingObject:
     def maze(self):
         return self._maze
 
-    @maze.setter
-    def maze(self, other_maze):
-        self._maze = other_maze
-
     @property
     def x(self):
         return self._x
 
-    @x.setter
-    def x(self, value):
-        self._y = value
-
     @property
     def y(self):
         return self._y
-
-    @y.setter
-    def y(self, value):
-        self._y = value
 
     def move_left(self):
         if self._x != 1 and self._maze[self._x - 1, self._y] != 1:
@@ -94,7 +82,8 @@ class MovingObject:
             self._maze[self._x, self._y] = 2
 
     def move_right(self):
-        if self._x != self._maze.width and self._maze[self._x + 1, self._y] != 1:
+        not_out_of_range = self._x != self._maze.width
+        if not_out_of_range and self._maze[self._x + 1, self._y] != 1:
             self._maze[self._x, self._y] = 0
             self._x += 1
             if self._maze[self._x, self._y] != 3:
@@ -107,7 +96,8 @@ class MovingObject:
             self._maze[self._x, self._y] = 2
 
     def move_down(self):
-        if self._y != self._maze.length and self._maze[self._x, self._y + 1] != 1:
+        not_out_of_range = self._y != self._maze.length
+        if not_out_of_range and self._maze[self._x, self._y + 1] != 1:
             self._maze[self._x, self._y] = 0
             self._y += 1
             if self._maze[self._x, self._y] != 3:
