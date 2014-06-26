@@ -15,7 +15,7 @@ class App:
     def on_init(self):
         pygame.init()
         self._maze  = Map(10, 10)
-        self._maze.recursive_division_maze_generation(1, 11, 1, 11)
+        self._maze.recursive_division_maze_generation(1, 10, 1, 10)
         self._moving_thing = MovingObject(self._maze)
         self._display_surf = pygame.display.set_mode((1000, 700), pygame.HWSURFACE)
         self._running = True
@@ -36,9 +36,6 @@ class App:
                 self.on_key_left(event)
             elif event.key == pygame.K_d:
                 self.on_key_right(event)
-
-    def on_loop(self):
-        pass
 
     def on_key_down(self, event):
         self._moving_thing.move_down()
@@ -88,8 +85,9 @@ class App:
         while( self._running ):
             for event in pygame.event.get():
                 self.on_event(event)
-            self.on_loop()
             self.on_render()
+            if self._moving_thing.maze[self._moving_thing.x, self._moving_thing.y] == 3:
+                self._running = False
         self.on_cleanup()
 
 if __name__ == "__main__" :
